@@ -1,0 +1,60 @@
+// OOPDemo.java
+class Animal {
+    String name;
+
+    // Constructor
+    Animal(String name) {
+        this.name = name;
+    }
+
+    // Method to be overridden
+    void makeSound() {
+        System.out.println("Some generic animal sound...");
+    }
+
+    void display() {
+        System.out.println("I am an animal named " + name);
+    }
+}
+
+// Dog class inherits from Animal
+class Dog extends Animal {
+
+    Dog(String name) {
+        super(name);
+    }
+
+    // Overriding makeSound()
+    @Override
+    void makeSound() {
+        System.out.println(name + " says: Woof Woof!");
+    }
+}
+
+// Cat class inherits from Animal
+class Cat extends Animal {
+
+    Cat(String name) {
+        super(name);
+    }
+
+    // Overriding makeSound()
+    @Override
+    void makeSound() {
+        System.out.println(name + " says: Meow Meow!");
+    }
+}
+
+public class OOPDemo {
+    public static void main(String[] args) {
+        // Parent reference, child objects
+        Animal a1 = new Dog("Buddy");
+        Animal a2 = new Cat("Kitty");
+
+        a1.display();
+        a1.makeSound(); // Calls Dog’s version
+
+        a2.display();
+        a2.makeSound(); // Calls Cat’s version
+    }
+}
